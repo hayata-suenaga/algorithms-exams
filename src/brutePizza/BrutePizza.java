@@ -1,13 +1,16 @@
+package brutePizza;
+
 public class BrutePizza {
     public static void main(String[] args) {
 
         String[] toppings = { "a", "b", "c", "d" };
-        String result = getAllCombsInString(toppings, 1);
+        /* Find out at which index "anchovies" appears in the array of toppings */
+        Integer index = getIndex(toppings, "anchovies");
+        String result = getAllCombsInString(toppings, index);
         System.out.println(result);
-
     }
 
-    static String getAllCombsInString(String[] toppings, int noPos) {
+    static String getAllCombsInString(String[] toppings, Integer noPos) {
         int length = toppings.length;
         /* Get the base 10 representation of binary flags when all choices are selected */
         int max = Integer.parseInt("1".repeat(length), 2);
@@ -25,7 +28,7 @@ public class BrutePizza {
                 if (checkBitFlag(flags, pos)) {
                     combination += toppings[pos] + " ";
                     /* If NO choice is included, note that */
-                    if (pos == noPos) includesNo = true;
+                    if (noPos != null && pos == noPos) includesNo = true;
                 }
             }
 
@@ -33,6 +36,12 @@ public class BrutePizza {
             result += combination + (includesNo ? "NO\n" : "\n");
         }
         return result;
+    }
+
+    static Integer getIndex(String[] items, String target) {
+        Integer index = null;
+        for (int i = 0; i < items.length; i++) { if (items[i].equals(target)) { index = i; break; }}
+        return index;
     }
 
     static boolean checkBitFlag(int flags, int flagPos) {

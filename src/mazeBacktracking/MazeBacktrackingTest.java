@@ -1,3 +1,5 @@
+package mazeBacktracking;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,7 +31,7 @@ class MazeBacktrackingTest {
     }
 
     @Test
-    void complicatedTwoPath() {
+    void complicatedTwoPaths() {
         int[][] maze = {
                 { 1, 0, 1, 1, 1 },
                 { 1, 0, 1, 0, 1 },
@@ -42,9 +44,20 @@ class MazeBacktrackingTest {
     }
 
     @Test
-    void shortOnePath() {
+    void shortHorizontalPath() {
         int[][] maze = {
                 { 1, 1 },
+        };
+
+        int result = MazeBacktracking.findShortestPathLength(maze, 1, 0);
+        assertEquals(1, result);
+    }
+
+    @Test
+    void shortVerticalPath() {
+        int[][] maze = {
+                { 1 },
+                { 1 }
         };
 
         int result = MazeBacktracking.findShortestPathLength(maze, 1, 0);

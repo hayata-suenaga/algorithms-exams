@@ -1,3 +1,4 @@
+package dynamicRod;
 
 public class DynamicRod {
     public static void main(String[] args) {

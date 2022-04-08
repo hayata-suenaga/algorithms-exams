@@ -1,3 +1,5 @@
+package greedyRod;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -12,7 +14,7 @@ public class GreedyRod {
         /* Iterate over the prices, creating an object that holds both piece length and price per unit */
         Piece[] pieces = new Piece[prices.length];
         for (int idx = 0; idx < prices.length; idx++) {
-            pieces[idx] = new Piece(idx + 1, (double) prices[idx] / (idx + 1));;
+            pieces[idx] = new Piece(idx + 1, (double) prices[idx] / (idx + 1));
         }
 
         /* Order pieces in non-increasing order by per unit value */

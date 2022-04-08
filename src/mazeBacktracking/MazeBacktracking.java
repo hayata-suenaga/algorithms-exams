@@ -1,3 +1,5 @@
+package mazeBacktracking;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -39,8 +41,6 @@ public class MazeBacktracking {
 
         /* If the current point is the goal, return the shorter between the current path or min path so far */
         if (path.get(path.size() - 1).equals(goalPt)) {
-            path.forEach(position -> System.out.print("(" + position.x + "," + position.y + "), "));
-            System.out.println();
             return Math.min(path.size() - 1, minPathLength);
         }
         /* Check if the current position is promising or not */
@@ -78,9 +78,7 @@ public class MazeBacktracking {
         /* If the minimal length required to get to the goal from the current position
         is greater than the current min length, the choice is not promising */
         int possibleMinLength = getMinLengthRequired(currentPt, goalPt) + path.size() - 1;
-        if (possibleMinLength >= minPathLength) return false;
-
-        return true;
+        return possibleMinLength < minPathLength;
     }
 
     static int getMinLengthRequired(Point pt1, Point pt2) {
