@@ -19,7 +19,7 @@ At each subproblem, one piece can be cut off from the given rod. The value of th
 value sum. Remaining rod is an argument to the next subproblem.
 
 For example, if given a rod of length 3, a piece of length 1, length 2, or length 3 can be cut off.
-A rod of length 2, 1, and 0 will remain, correspondingly.
+A rod of length 2, 1, and 0 will remain, accordingly.
 
 If given a rod of length `s`, there are `s` ways to cut off one piece out of it. For each of the `s` choices,
 the max value that can be obtained is the sum of the value of the cut-off piece and the max value that can
